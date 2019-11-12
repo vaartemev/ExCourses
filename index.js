@@ -4,7 +4,7 @@ class Calculator {
   }
 
   getResult() {
-    return `Now state is ${this.state}`;
+    return this.state;
   }
 
   reset() {
@@ -12,51 +12,43 @@ class Calculator {
     return `State was reseted. Now state is ${this.state}`;
   }
 
-  calculate = (x, operation) => {
-    if (!this.calculation.value) {
-      this.calculation.value = this.state;
-    }
-    switch (operation) {
-      case 'add':
-        this.calculation.value += x;
-        break;
-      case 'subtract':
-        this.calculation.value -= x;
-        break;
-      case 'divide':
-        this.calculation.value /= x;
-        break;
-      case 'multiply':
-        this.calculation.value *= x;
-        break;
-      default:
-        break;
-    }
-
-    this.calculation.toString = () => this.calculation.value;
-
-    this.state = this.calculation;
-
-    return this.calculation;
-  };
-
   add = (x = 0) => {
-    this.calculate(x, 'add');
+    if (!this.add.value) {
+      this.add.value = this.state;
+    }
+    this.add.value += x;
+    this.add.toString = () => this.add.value;
+    this.state = this.add;
     return this.add;
   };
 
   subtract = (x = 0) => {
-    this.calculate(x, 'subtract');
+    if (!this.subtract.value) {
+      this.subtract.value = this.state;
+    }
+    this.subtract.value -= x;
+    this.subtract.toString = () => this.subtract.value;
+    this.state = this.subtract;
     return this.subtract;
   };
 
   divide = (x = 0) => {
-    this.calculate(x, 'divide');
+    if (!this.divide.value) {
+      this.divide.value = this.state;
+    }
+    this.divide.value /= x;
+    this.divide.toString = () => this.divide.value;
+    this.state = this.divide;
     return this.divide;
   };
 
   multiply = (x = 0) => {
-    this.calculate(x, 'multiply');
+    if (!this.multiply.value) {
+      this.multiply.value = this.state;
+    }
+    this.multiply.value *= x;
+    this.multiply.toString = () => this.multiply.value;
+    this.state = this.multiply;
     return this.multiply;
   };
 }
